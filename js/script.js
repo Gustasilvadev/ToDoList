@@ -12,6 +12,7 @@ const criarTarefa = (evento) => {
     tarefa.innerHTML = conteudo; //<li class="task"><p class="content">${valor}</p></li>
     lista.appendChild(tarefa);
     tarefa.appendChild(BotaoConcluido());
+    tarefa.appendChild(BotaoExcluir());
     
     input.value = "";
 };
@@ -38,6 +39,21 @@ const concluirTarefa = (evento) =>{
 
 }
 
+//Botao Excluir
+const BotaoExcluir = ()=>{
+    const criarBotao = document.createElement("button");
+    criarBotao.classList.add("delete-button");
+    criarBotao.innerText = 'Excluir';
+
+    criarBotao.addEventListener('click',deletarTarefa);
+    return criarBotao
+}
+
+const deletarTarefa = (evento) =>{
+    const finalizar = evento.target;
+    const tarefaExcluida = finalizar.parentElement;
+    tarefaExcluida.remove();
+}
 
 
 
