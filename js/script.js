@@ -11,6 +11,7 @@ const criarTarefa = (evento) => {
 
     tarefa.innerHTML = conteudo; //<li class="task"><p class="content">${valor}</p></li>
     lista.appendChild(tarefa);
+    tarefa.appendChild(BotaoConcluido());
     
     input.value = "";
 };
@@ -19,8 +20,30 @@ const novaTarefa = document.querySelector("[data-form-button]");
 
 novaTarefa.addEventListener('click', criarTarefa);
 
+
+//Criando componente
+const BotaoConcluido = ()=> {
+    const criarBotao = document.createElement("button");
+    criarBotao.classList.add("check-button");
+    criarBotao.innerText = 'Concluir';
+
+    criarBotao.addEventListener('click',concluirTarefa)
+    return criarBotao;
+} 
+
+const concluirTarefa = (evento) =>{
+    const finalizar = evento.target; // button => button
+    const tarefaCompleta = finalizar.parentElement;
+    tarefaCompleta.classList.toggle('done'); //Devolve True or False
+
+}
+
+
+
+
+
 // Criação de Elementos
-{/* <li><p></p></li> */}
+/* <li><p></p></li> */
 // createElement(); -> cria um elemento.
 // appendChild(); -> insere um elemento dentro da tag anterior
 // innerHTML(); -> insere html através do js
