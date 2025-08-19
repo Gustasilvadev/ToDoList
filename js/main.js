@@ -1,3 +1,6 @@
+import BotaoConcluido from "../componentes/concluiTarefa.js";
+import BotaoExcluir from "../componentes/excluiTarefa.js";
+
 const criarTarefa = (evento) => {
     evento.preventDefault();
 
@@ -22,38 +25,6 @@ const novaTarefa = document.querySelector("[data-form-button]");
 novaTarefa.addEventListener('click', criarTarefa);
 
 
-//Criando componente
-const BotaoConcluido = ()=> {
-    const criarBotao = document.createElement("button");
-    criarBotao.classList.add("check-button");
-    criarBotao.innerText = 'Concluir';
-
-    criarBotao.addEventListener('click',concluirTarefa)
-    return criarBotao;
-} 
-
-const concluirTarefa = (evento) =>{
-    const finalizar = evento.target; // button => button
-    const tarefaCompleta = finalizar.parentElement;
-    tarefaCompleta.classList.toggle('done'); //Devolve True or False
-
-}
-
-//Botao Excluir
-const BotaoExcluir = ()=>{
-    const criarBotao = document.createElement("button");
-    criarBotao.classList.add("delete-button");
-    criarBotao.innerText = 'Excluir';
-
-    criarBotao.addEventListener('click',deletarTarefa);
-    return criarBotao
-}
-
-const deletarTarefa = (evento) =>{
-    const finalizar = evento.target;
-    const tarefaExcluida = finalizar.parentElement;
-    tarefaExcluida.remove();
-}
 
 
 
